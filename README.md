@@ -3,12 +3,13 @@ Sentence Boundary Detection (SBD)
 
 Split text into sentences with a `vanilla` rule based approach (i.e working ~95% of the time).
 
-* Split a text based on period, question- and exclamation marks.
+* Split a text based on period, question- and exclamation marks, and the Hindi sentence boundary character (।).
     * Skips (most) abbreviations (Mr., Mrs., PhD.)
     * Skips numbers/currency
     * Skips urls, websites, email addresses, phone nr.
     * Counts ellipsis and ?! as single punctuation
- 
+    * Supports Hindi sentence boundaries
+
 ### Demo
 
 [http://tessmore.github.io/sbd/](http://tessmore.github.io/sbd/)

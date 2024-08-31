@@ -162,4 +162,22 @@ describe('Multiple sentences', function () {
             assert.equal(sentences.length, 2);
         });
     });
+
+    describe('Hindi sentence boundary character', function () {
+        var entry = "यह पहला वाक्य है। यह दूसरा वाक्य है।";
+        var sentences = tokenizer.sentences(entry);
+
+        it('should get two sentences', function () {
+            assert.equal(sentences.length, 2);
+        });
+    });
+
+    describe('Multiple Hindi sentences', function () {
+        var entry = "यह पहला वाक्य है। यह दूसरा वाक्य है। और यह तीसरा वाक्य है।";
+        var sentences = tokenizer.sentences(entry);
+
+        it('should get three sentences', function () {
+            assert.equal(sentences.length, 3);
+        });
+    });
 });

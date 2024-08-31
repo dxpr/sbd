@@ -160,12 +160,13 @@ exports.isConcatenated = function(word) {
 
     if ((i = word.indexOf(".")) > -1 ||
         (i = word.indexOf("!")) > -1 ||
-        (i = word.indexOf("?")) > -1)
+        (i = word.indexOf("?")) > -1 ||
+        (i = word.indexOf("।")) > -1)
     {
         var c = word.charAt(i + 1);
 
         // Check if the next word starts with a letter
-        if (c.match(/[a-zA-Z].*/)) {
+        if (c.match(/[a-zA-Z\u0900-\u097F].*/)) {
             return [word.slice(0, i), word.slice(i+1)];
         }
     }
@@ -176,7 +177,8 @@ exports.isConcatenated = function(word) {
 exports.isBoundaryChar = function(word) {
     return word === "." ||
            word === "!" ||
-           word === "?";
+           word === "?" ||
+           word === "।";
 };
 
 },{}],2:[function(require,module,exports){
