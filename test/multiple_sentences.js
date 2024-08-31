@@ -162,4 +162,31 @@ describe('Multiple sentences', function () {
             assert.equal(sentences.length, 2);
         });
     });
+
+    describe('Chinese sentence boundary character', function () {
+        var entry = "这是第一句。这是第二句。";
+        var sentences = tokenizer.sentences(entry);
+
+        it('should get two sentences', function () {
+            assert.equal(sentences.length, 2);
+        });
+    });
+
+    describe('Multiple Chinese sentences', function () {
+        var entry = "这是第一句。这是第二句。这是第三句。";
+        var sentences = tokenizer.sentences(entry);
+
+        it('should get three sentences', function () {
+            assert.equal(sentences.length, 3);
+        });
+    });
+
+    describe('Mixed English and Chinese sentences', function () {
+        var entry = "This is an English sentence. 这是一个中文句子。This is another English sentence.";
+        var sentences = tokenizer.sentences(entry);
+
+        it('should get three sentences', function () {
+            assert.equal(sentences.length, 3);
+        });
+    });
 });
